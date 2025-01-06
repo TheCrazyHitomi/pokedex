@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css'
-import PokemonCard from './components/PokemonCard'
+import PokemonCard, { Pokemon } from './components/PokemonCard'
 
 
-const pokemonList = [
+const pokemonList:Pokemon[] = [
   {
     name: "bulbasaur",
     imgSrc:
@@ -34,24 +34,25 @@ function App() {
 
   
   const [pokemonIndex, setPokemonIndex] = useState(0);
-  
-  const handleClickPrecedent = () => {
-    setPokemonIndex(pokemonIndex -1);
+
+  const handleClick = (index :number) => {
+    setPokemonIndex(index)
   }
-  
-  
-  const handleClickSuivant = () => {
-    setPokemonIndex(pokemonIndex + 1)
-  }
-  
   
   return (
     <div>
-      <PokemonCard imgSrc={pokemonList[pokemonIndex].imgSrc} name={pokemonList[pokemonIndex].name}/>
-      <button disabled={pokemonIndex > 0 ? false : true} onClick={handleClickPrecedent} >Précédent</button>
-      <button disabled={pokemonIndex < pokemonList.length - 1 ? false : true} onClick={handleClickSuivant} >Suivant</button>
+      <nav>
+      
+        {pokemonList.map((pokemon, index) => (
+          <button key={pokemon.name} onClick={()=>handleClick(index)}>
+            {pokemon.name}
+          </button>
+        ))}
+      
+      </nav>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
     </div>
-  )
+  );
 }
 
 export default App

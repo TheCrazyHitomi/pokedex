@@ -1,18 +1,19 @@
-interface Pokemon{
+export interface Pokemon{
     name: string,
     imgSrc?: string
 };
 
-const PokemonCard =({name, imgSrc}: Pokemon) =>{
-
+const PokemonCard =(props:{pokemon:Pokemon}) =>{
+    const {pokemon}=props
+const {imgSrc, name} = pokemon;
     
         return (
-            <div>
+            <div className="card">
                 {imgSrc ?
-                <img src={imgSrc} alt={name} /> 
+                <img className="card-img" src={imgSrc} alt={name} /> 
             : <p>???</p> }
             <p>
-                <figcaption>{name}</figcaption>
+                <figcaption className="title">{name}</figcaption>
             </p>
             </div>
         );
