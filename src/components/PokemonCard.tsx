@@ -1,15 +1,18 @@
+interface Pokemon{
+    name: string,
+    imgSrc?: string
+};
 
-
-const PokemonCard =({pokemon}) =>{
+const PokemonCard =({name, imgSrc}: Pokemon) =>{
 
     
         return (
             <div>
-                {pokemon.imgSrc ?
-                <img src={pokemon.imgSrc} alt={pokemon.name} /> 
+                {imgSrc ?
+                <img src={imgSrc} alt={name} /> 
             : <p>???</p> }
             <p>
-                <figcaption>{pokemon.name}</figcaption>
+                <figcaption>{name}</figcaption>
             </p>
             </div>
         );
