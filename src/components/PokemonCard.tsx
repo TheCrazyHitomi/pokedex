@@ -1,14 +1,15 @@
 export interface Pokemon{
     name: string,
-    imgSrc?: string
+    imgSrc?: string,
+    background?: string
 };
 
 const PokemonCard =(props:{pokemon:Pokemon}) =>{
     const {pokemon}=props
-const {imgSrc, name} = pokemon;
+    const {imgSrc, name} = pokemon;
     
         return (
-            <div className="card">
+            <div className="card" style={{backgroundColor:pokemon.background}}>
                 {imgSrc ?
                 <img className="card-img" src={imgSrc} alt={name} /> 
             : <p>???</p> }
