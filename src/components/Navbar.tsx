@@ -16,7 +16,7 @@ const Navbar = (props:NavBarProps) =>{
 
 
     return(
-        <nav>
+        <nav className="navbar">
         {pokemonList.map((pokemon, index) => (
             <button key={pokemon.name}  type="button" onClick={()=>setPokemonIndex(index)}>
             {pokemon.name}
