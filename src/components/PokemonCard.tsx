@@ -1,10 +1,10 @@
-export interface Pokemon{
-    name: string,
-    imgSrc?: string,
-    background?: string
-};
+import { Pokemon } from "./navbar";
 
-const PokemonCard =(props:{pokemon:Pokemon}) =>{
+interface PokemonCardProps{
+    pokemon:Pokemon
+}
+
+const PokemonCard =(props:PokemonCardProps) =>{
     const {pokemon}=props
     const {imgSrc, name} = pokemon;
     
@@ -13,9 +13,9 @@ const PokemonCard =(props:{pokemon:Pokemon}) =>{
                 {imgSrc ?
                 <img className="card-img" src={imgSrc} alt={name} /> 
             : <p>???</p> }
-            <p>
+            <div>
                 <figcaption className="title">{name}</figcaption>
-            </p>
+            </div>
             </div>
         );
     }

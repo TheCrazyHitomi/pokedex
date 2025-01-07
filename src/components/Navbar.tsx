@@ -14,11 +14,19 @@ const Navbar = (props:NavBarProps) =>{
 
     const {setPokemonIndex, pokemonList} = props;
 
+    const handleClick = (index:number) =>{
+
+        setPokemonIndex(index)
+        if(pokemonList[index].name === "pikachu"){
+            alert("Pika Pikachu !!!");
+        }
+    }
+
 
     return(
         <nav className="navbar">
         {pokemonList.map((pokemon, index) => (
-            <button key={pokemon.name}  type="button" onClick={()=>setPokemonIndex(index)}>
+            <button key={pokemon.name}  type="button" onClick={()=>handleClick(index)}>
             {pokemon.name}
             </button>
         ))}
